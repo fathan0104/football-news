@@ -3,7 +3,8 @@ from main.views import show_main, create_news, show_news, show_xml, show_json, s
 from django.contrib.auth import authenticate, login, logout  
 from main.views import logout_user
 from django.contrib.auth.decorators import login_required
-  
+from main.views import edit_news
+from main.views import delete_news
 
 app_name = 'main'
 
@@ -17,4 +18,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('logout/', logout_user, name='logout'),
     path('login/', login_user, name='login'), 
+    path('news/<uuid:id>/edit', edit_news, name='edit_news'),
+    path('news/<uuid:id>/delete', delete_news, name='delete_news'),
 ]
